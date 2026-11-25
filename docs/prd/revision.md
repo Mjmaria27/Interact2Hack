@@ -24,8 +24,68 @@
 
 ## Para presentar
 
-(Paso 4: los tres huecos más graves).
+Elegimos los tres huecos que más afectan a las funcionalidades principales de Interact2Hack: ejecutar una tarea, calcular su estado y atender las tareas vencidas.
+
+### Hueco 9 — Tareas con varios responsables
+
+- **Qué encontramos:** la descripción del proyecto dice que una tarea puede asignarse a uno o varios estudiantes, pero el cliente no respondió cómo trabajan juntos (P-18 y P-19) ni si un administrador puede cambiar los responsables (P-20). El primer borrador del PRD convirtió estas preguntas en supuestos (S-05, S-06 y S-07) y no las incluyó en la lista de puntos abiertos.
+- **Por qué es importante:** define cómo funciona el checklist, que es el centro de la herramienta. Si cada estudiante tiene su propio checklist, o si todos deben confirmar la finalización, cambian la ejecución, el cálculo del estado y el historial.
+- **Qué debe decidir el cliente:** si los responsables comparten un mismo checklist, si basta con que uno confirme la finalización y si un administrador puede cambiar los responsables de una tarea ya asignada.
+- **Cómo quedó en el PRD revisado:** R21, R22 y R26 siguen marcadas como [SUPUESTO] (S-05, S-06 y S-07). Agregamos los puntos abiertos A-19 (P-18, P-19), A-20 (P-20) y A-21 (P-38, P-47). En W7 aclaramos que dejar fuera los reportes es una propuesta del equipo, no una decisión del cliente.
+
+### Hueco 4 — Cómo se calculan los estados de una tarea
+
+- **Qué encontramos:** M11 decía que los cinco estados «se calculan solos», pero el cliente no definió cuándo una tarea pasa a «en ejecución» (P-24) ni con cuánta anticipación está «por vencer» (P-49). Solo están confirmados los cinco estados (P-23) y el paso automático a vencida (P-34).
+- **Por qué es importante:** el tablero de cumplimiento es la página de inicio del administrador y ordena las tareas por estado. Sin estos criterios no se puede construir ni probar el tablero ni la alerta de tareas próximas a vencer.
+- **Qué debe decidir el cliente:** en qué momento una tarea pasa a «en ejecución» y cuántos minutos antes de su hora límite debe considerarse «por vencer».
+- **Cómo quedó en el PRD revisado:** M11 conserva los cinco estados y el paso a vencida, y marca los criterios de «en ejecución» y «por vencer» como [SUPUESTO] S-08 y S-09 (30 minutos, cifra propuesta por el equipo). Agregamos el punto abierto A-16; el intervalo de «por vencer» ya estaba en A-05. La precedencia entre estados (hueco 3) queda en A-15.
+
+### Hueco 1 — Qué pasa con una tarea vencida
+
+- **Qué encontramos:** R30 afirmaba que una tarea vencida «todavía se puede completar, también por otra persona». P-35 solo confirma que la tarea vencida sigue visible y que otra persona «podría realizarla»; no dice quién puede completarla ni cómo. El mismo problema aparece en R9 (hueco 12): si un estudiante solo ve sus tareas, otro estudiante no tiene forma de encontrar la tarea vencida.
+- **Por qué es importante:** durante el evento las tareas vencidas son las que más necesitan atención, y aparecen en primer lugar del tablero (P-34, P-37). Si no está claro quién puede terminarlas, el administrador ve el problema pero no sabe cómo resolverlo.
+- **Qué debe decidir el cliente:** si el responsable original puede seguir completando una tarea vencida, y si otro estudiante la toma por su cuenta o debe asignársela un administrador.
+- **Cómo quedó en el PRD revisado:** R30 conserva como hecho que la tarea vencida sigue visible (P-35). Que se pueda completar después del vencimiento queda como [SUPUESTO] S-19, y el acceso de otro estudiante mediante reasignación del administrador como [SUPUESTO] S-07 (R9, R22). Agregamos los puntos abiertos A-14 y A-20.
 
 ## Preguntas para el cliente
 
-(Paso 4: ordenadas por prioridad, para el avance 3)
+Preguntas para cerrar antes del Avance 3 (2 de diciembre), tomadas de los puntos abiertos A-01 a A-24 del PRD revisado. Ninguna tiene respuesta todavía.
+
+### Prioridad alta: necesarias para implementar los flujos principales
+
+| # | Punto | Pregunta | Fuente |
+| --- | --- | --- | --- |
+| 1 | A-19 | Si una tarea tiene varios responsables, ¿comparten un mismo checklist? ¿Basta con que uno confirme la finalización? | P-18, P-19 |
+| 2 | A-16 | ¿En qué momento pasa una tarea a «en ejecución»? | P-24 |
+| 3 | A-05 | ¿Cuál es el intervalo exacto para considerar una tarea «por vencer»? | P-49 |
+| 4 | A-15 | Si una tarea cumple las condiciones de varios estados (por ejemplo, vencida con pasos marcados o sin responsables), ¿cómo debe verse? | P-23 |
+| 5 | A-14 | ¿Quién puede completar una tarea vencida: el responsable original, otra persona asignada por un administrador o ambos? | P-35 |
+| 6 | A-20 | ¿Un administrador puede cambiar los responsables de una tarea ya asignada? Cuando una tarea vence, ¿otro estudiante la toma por su cuenta o se la asigna un administrador? | P-20, P-35 |
+| 7 | A-22 | ¿El responsable es obligatorio al crear una tarea, o se puede guardar sin responsable y asignarla después? | [DESC], P-23 |
+| 8 | A-18 | ¿Cada administrador gestiona todas las tareas o solo las de su área? | P-01, P-17 |
+| 9 | A-01 | ¿Qué permisos concretos tiene el super admin que no tenga un administrador? ¿Quién crea la cuenta del super admin? ¿Un administrador puede eliminar a otro administrador? | P-01 |
+| 10 | A-09 | ¿Cuáles son las tres funcionalidades indispensables y cuáles pueden esperar a una segunda versión? | P-46, P-48 |
+
+### Prioridad media: importantes, pero pueden resolverse después
+
+| # | Punto | Pregunta | Fuente |
+| --- | --- | --- | --- |
+| 11 | A-12 | ¿Cuándo nos envían la carpeta con la identidad visual del hackathon? | P-43, P-44 |
+| 12 | A-02 | ¿Puede el administrador cambiar los pasos de una tarea que un estudiante ya empezó? | P-13 |
+| 13 | A-06 | ¿Puede el administrador ampliar la hora límite de una tarea vencida y, si lo hace, la tarea deja de estar vencida? | P-36 |
+| 14 | A-17 | ¿Qué debe pasar cuando un segundo administrador intenta editar una tarea que otro administrador ya está editando? | P-13 |
+| 15 | A-23 | ¿Cuánto retraso es aceptable entre que un estudiante termina una tarea y el administrador lo ve en el tablero? | P-31 |
+| 16 | A-24 | ¿Es necesario registrar la hora exacta de cada paso del checklist o basta con registrar quién lo marcó y la hora de finalización de la tarea? | P-18, P-32 |
+| 17 | A-08 | ¿Hay conexión estable a internet en todos los espacios del evento? | P-40 |
+| 18 | A-03 | ¿Cuánto debe durar la sesión antes de pedir de nuevo el inicio de sesión? | P-08 |
+| 19 | A-13 | ¿En qué fechas se celebra el hackathon? | — |
+
+### Prioridad baja: mejoras o detalles secundarios
+
+| # | Punto | Pregunta | Fuente |
+| --- | --- | --- | --- |
+| 20 | A-11 | ¿Se confirma el adjunto de fotografías como evidencia? | P-16 |
+| 21 | A-21 | ¿Necesitan medir el tiempo de retraso de las tareas o descargar reportes de cumplimiento? | P-38, P-47 |
+| 22 | A-10 | ¿La interfaz debe seguir la estética tecnológica del hackathon o ser más sobria? | P-45 |
+| 23 | A-07 | ¿Cuántos estudiantes y administradores usarán la plataforma? | P-42 |
+| 24 | A-04 | ¿La plataforma estará disponible solo durante el evento o también antes y después? | P-09 |
