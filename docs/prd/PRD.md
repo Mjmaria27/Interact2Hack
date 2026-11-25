@@ -1,7 +1,7 @@
 # PRD · Plataforma de coordinación del staff de Interact2Hack
 
-**Estado:** Borrador v0.1 (Avance 2)
-**Fecha:** 23 de noviembre de 2026
+**Estado:** Borrador v0.2 (Avance 2, corregido según docs/prd/revision.md)
+**Fecha:** 24 de noviembre de 2026
 **Equipo:** María Paula Baca y Carlos Aluisa
 **Fuentes únicas:**
 - `docs/fuentes/descripcion-proyecto.md` — descripción del proyecto final (citada como **[DESC]**).
@@ -32,7 +32,7 @@ El uso será sobre todo en celular, durante el evento y en movimiento entre espa
 | Perfil | Quién es | Qué hace | Fuente |
 |---|---|---|---|
 | **Super admin** | Responsable general de la coordinación del staff. | Tiene todo lo que tiene un administrador, con más permisos y acceso. Qué permisos adicionales tiene exactamente está pendiente: ver S-01. | P-01 |
-| **Administrador** | Coordinador de un área del evento (por ejemplo aulas o escenarios). Puede haber varios y todos tienen los mismos privilegios. | Gestiona usuarios, crea, edita, elimina y asigna tareas, gestiona la disponibilidad del staff y supervisa el tablero de cumplimiento. | [DESC], P-01, P-02, P-04 |
+| **Administrador** | Coordinador de un área del evento (por ejemplo aulas o escenarios). Puede haber varios y, «en teoría», todos tienen los mismos privilegios (ver S-21). | Gestiona usuarios, crea, edita, elimina y asigna tareas, gestiona la disponibilidad del staff y supervisa el tablero de cumplimiento. | [DESC], P-01, P-02, P-04 |
 | **Estudiante (staff)** | Miembro del staff que ejecuta tareas en el evento. | Ve las tareas que tiene asignadas y su estado, abre el detalle, marca los pasos del checklist, añade observaciones y confirma la finalización. Puede cambiar su contraseña. | [DESC], P-06, P-25 |
 
 **Datos de la cuenta:** nombre y correo **P-05**. No hay registro público: las cuentas las crea un administrador **[DESC]**.
@@ -46,7 +46,7 @@ El uso será sobre todo en celular, durante el evento y en movimiento entre espa
 | # | Objetivo | Fuente |
 |---|---|---|
 | O1 | Repartir el trabajo del staff con tareas claras, paso a paso, y con responsables definidos. | [DESC] |
-| O2 | Dejar constancia confiable de qué se hizo, quién lo hizo y cuándo. | P-03, P-18, P-32 |
+| O2 | Dejar constancia confiable de qué se hizo, quién lo hizo y cuándo se terminó. | P-03, P-18, P-32 |
 | O3 | Detectar a tiempo las tareas vencidas o próximas a vencer para que los administradores puedan actuar. | P-23, P-33, P-34, P-37 |
 | O4 | Que los estudiantes puedan usar la herramienta con comodidad desde el celular durante el evento. | P-39 |
 
@@ -66,11 +66,13 @@ El uso será sobre todo en celular, durante el evento y en movimiento entre espa
 
 ## 4. Alcance (MoSCoW)
 
+La clasificación MoSCoW es una propuesta del equipo, porque el cliente no respondió qué es indispensable ni qué puede esperar (P-46, P-48; A-09). **[SUPUESTO]** S-22. Como subconjunto provisional para el Avance 3 (2 de diciembre) proponemos M1, M2, M5 a M9, M11 y M12; tampoco está confirmado por el cliente. **[SUPUESTO]** S-22.
+
 ### Must have (indispensable para la primera versión)
 
 - **M1.** Inicio de sesión con usuario y contraseña, sin registro público **[DESC]**.
 - **M2.** Tres perfiles: super admin, administrador y estudiante **P-01**, **[DESC]**.
-- **M3.** Gestión de usuarios (ver, crear, editar y eliminar) por parte de los administradores **[DESC]**.
+- **M3.** Gestión de usuarios (ver, crear, editar y eliminar) por parte de los administradores **[DESC]**. Restricción provisional: solo el super admin gestiona las cuentas de administrador (ver R8). **[SUPUESTO]** S-01.
 - **M4.** Cambio de contraseña por parte del propio usuario **P-06**.
 - **M5.** Gestión de tareas (ver, crear, editar y eliminar) con fecha y hora de vencimiento, lugar o aula, descripción y checklist **[DESC]**, **P-10**.
 - **M6.** Asignación de cada tarea a uno o varios estudiantes, sin responsable principal **[DESC]**, **P-22**.
@@ -78,19 +80,19 @@ El uso será sobre todo en celular, durante el evento y en movimiento entre espa
 - **M8.** Detalle de la tarea con toda su información, el formulario del checklist, un campo de observaciones y un botón de guardar **[DESC]**.
 - **M9.** Confirmación de la finalización por parte del estudiante, posible solo si todos los pasos están marcados **P-12**, **P-25**.
 - **M10.** Registro de quién marcó cada paso **P-18**, **P-32**.
-- **M11.** Cinco estados (vencida, por vencer, en ejecución, sin asignar y terminada) que se calculan solos **P-23**, **P-34**.
+- **M11.** Cinco estados (vencida, por vencer, en ejecución, sin asignar y terminada) que se calculan solos **P-23**, **P-34**. Los criterios de «en ejecución» y «por vencer» son **[SUPUESTO]** S-08 y S-09.
 - **M12.** Tablero de cumplimiento en la página de inicio del administrador: cuadrícula de tarjetas en el orden definido y alerta visual arriba para lo próximo a vencer **P-23**, **P-31**, **P-33**.
 - **M13.** Archivo de las tareas terminadas, que no se pueden borrar, y conservación del historial aunque se elimine al estudiante **P-03**, **P-32**.
-- **M14.** Protecciones al editar: una tarea en ejecución no se puede borrar y dos administradores no pueden editar la misma tarea a la vez **P-13**.
+- **M14.** Protecciones al editar: una tarea en ejecución no se puede borrar y dos administradores no pueden editar la misma tarea a la vez **P-13**. La forma de impedir la edición simultánea es **[SUPUESTO]** S-17.
 - **M15.** Diseño pensado primero para celular **P-39**.
-- **M16.** Uso de la identidad visual del hackathon que entregará el cliente **P-43**, **P-44**.
+- **M16.** Uso de la identidad visual del hackathon que entregará el cliente **P-43**, **P-44**. Depende de recibir la carpeta de identidad visual (A-12).
 
 ### Should have (importante, pero no bloquea la primera versión)
 
 - **S1.** Gestión del estado o la disponibilidad del staff por parte del administrador, para casos como una calamidad que impide asistir **P-02**, **P-04**.
 - **S2.** Cambio de los responsables de una tarea ya asignada, para que otra persona pueda hacer una tarea vencida **P-35**. **[SUPUESTO]** S-07.
 - **S3.** Actualización del tablero sin que el administrador tenga que recargar la página **P-31**. **[SUPUESTO]** S-10.
-- **S4.** Consulta del historial de tareas terminadas con responsables y hora de cada paso **P-32**.
+- **S4.** Consulta del historial de tareas terminadas con quién marcó cada paso y la hora de finalización **P-32**. La hora de cada paso es **[SUPUESTO]** S-20.
 
 ### Could have (deseable si hay tiempo)
 
@@ -108,7 +110,7 @@ El uso será sobre todo en celular, durante el evento y en movimiento entre espa
 - **W4.** Aprobación de las tareas terminadas por parte de un administrador **P-27**.
 - **W5.** Tareas recurrentes generadas automáticamente **P-14**. **[SUPUESTO]** S-14.
 - **W6.** Estado «bloqueada» y solicitudes de reasignación hechas por el estudiante **P-21**, **P-28**. **[SUPUESTO]** S-14.
-- **W7.** Reportes descargables y medición del tiempo de retraso **P-38**, **P-47**. **[SUPUESTO]** S-14.
+- **W7.** Reportes descargables y medición del tiempo de retraso **P-38**, **P-47**. **[SUPUESTO]** S-14: dejarlos fuera es una propuesta del equipo, no una decisión del cliente (A-21).
 - **W8.** Notificaciones fuera de la plataforma (correo o push): el cliente pidió una alerta visual en la página **P-33**.
 - **W9.** Trabajo completo sin conexión con sincronización posterior **P-41**. **[SUPUESTO]** S-12.
 
@@ -141,9 +143,9 @@ Esta versión no incluye:
 **Perfiles y permisos**
 
 - **R6.** Hay tres perfiles: super admin, administrador y estudiante.
-- **R7.** Todos los administradores tienen los mismos privilegios, aunque cada uno se ocupe de un área distinta.
+- **R7.** Cada administrador se encarga de un área (por ejemplo aulas o escenarios) y, «en teoría», todos tienen los mismos privilegios. Que todos vean y gestionen todas las tareas, sin distinguir por área, es **[SUPUESTO]** (S-21).
 - **R8.** El super admin puede hacer todo lo que hace un administrador y, además, es el único que puede crear, editar o eliminar cuentas de administrador. **[SUPUESTO]**
-- **R9.** Un estudiante solo ve las tareas que tiene asignadas.
+- **R9.** Un estudiante solo ve las tareas que tiene asignadas. Para que otro estudiante haga una tarea vencida, un administrador tiene que asignársela (ver R22 y R30); esto es **[SUPUESTO]** (S-07).
 
 **Usuarios y disponibilidad**
 
@@ -154,7 +156,7 @@ Esta versión no incluye:
 **Tareas**
 
 - **R13.** Toda tarea tiene fecha y hora de vencimiento, lugar o aula, descripción y un checklist con al menos un paso.
-- **R14.** Una tarea puede existir sin responsables; mientras no tenga ninguno, su estado es «sin asignar».
+- **R14.** El responsable forma parte de los datos de creación de una tarea, y una tarea sin responsables tiene el estado «sin asignar». Que se pueda guardar una tarea sin responsables para asignarla después es **[SUPUESTO]** (S-23).
 - **R15.** Las tareas no dependen unas de otras: el estudiante puede hacerlas en el orden que quiera.
 - **R16.** Las tareas no se clasifican por categoría ni por área.
 - **R17.** Una tarea en ejecución no se puede borrar.
@@ -170,13 +172,13 @@ Esta versión no incluye:
 **Ejecución**
 
 - **R23.** Todos los pasos del checklist son obligatorios.
-- **R24.** Cada paso marcado guarda quién lo marcó y a qué hora.
+- **R24.** Cada paso marcado guarda quién lo marcó, y la tarea guarda la hora en que se terminó. Que también se guarde la hora de cada paso es **[SUPUESTO]** (S-20).
 - **R25.** Una tarea no se termina sola: el estudiante tiene que confirmarla, y solo puede hacerlo si todos los pasos están marcados.
 - **R26.** En una tarea con varios responsables, basta con que uno de ellos confirme la finalización. **[SUPUESTO]**
 - **R27.** Al completar una tarea, el estudiante puede escribir observaciones adicionales.
 - **R28.** La confirmación del estudiante es suficiente: el administrador no tiene que aprobarla.
 - **R29.** Una vez confirmada, la tarea ya no se puede editar, ni por el estudiante ni por el administrador. **[SUPUESTO]**
-- **R30.** Una tarea vencida sigue visible y todavía se puede completar, también por otra persona.
+- **R30.** Una tarea vencida sigue visible. Que todavía se pueda completar después de su hora límite, por el responsable original o por otra persona a la que un administrador se la asigne, es **[SUPUESTO]** (S-19, S-07).
 
 **Estados y vencimientos**
 
@@ -184,7 +186,7 @@ Esta versión no incluye:
 - **R32.** Una tarea pasa a «en ejecución» cuando se marca el primero de sus pasos. **[SUPUESTO]**
 - **R33.** Una tarea está «por vencer» cuando faltan 30 minutos o menos para su hora límite y no está terminada. **[SUPUESTO]**
 - **R34.** Si llega la hora límite y la tarea no está terminada, pasa sola a «vencida».
-- **R35.** Si una tarea cumple las condiciones de varios estados, se aplica esta precedencia: terminada, vencida, por vencer, en ejecución, sin asignar. **[SUPUESTO]**
+- **R35.** Para calcular el estado de una tarea (no para ordenar el tablero, que sigue R37), si cumple las condiciones de varios estados se aplica esta precedencia: terminada, vencida, por vencer, en ejecución, sin asignar. **[SUPUESTO]**
 
 **Tablero de cumplimiento**
 
@@ -206,22 +208,22 @@ Esta versión no incluye:
 Permite entrar a la plataforma con las credenciales que da un administrador, sin registro público, y cambiar la contraseña propia. Fija qué ve cada perfil al entrar: el administrador llega al tablero de cumplimiento y el estudiante a su lista de tareas. Cubre R1 a R5 y R9.
 
 **E2 · Gestión de usuarios y perfiles — Must**
-Los administradores ven, crean, editan y eliminan cuentas con nombre, correo y perfil. El super admin tiene permisos adicionales sobre los administradores. Al eliminar a un estudiante se conserva todo lo que completó. Cubre R6 a R8 y R10.
+Los administradores ven, crean, editan y eliminan cuentas con nombre, correo y perfil. El super admin tiene permisos mayores que los administradores (P-01); cuáles son es **[SUPUESTO]** S-01. Al eliminar a un estudiante se conserva todo lo que completó. Cubre R6 a R8 y R10.
 
 **E3 · Gestión de tareas — Must**
 Los administradores ven, crean, editan y eliminan tareas con fecha y hora de vencimiento, lugar, descripción y checklist. La épica incluye las protecciones que pidió el cliente: no se borra una tarea en ejecución ni una terminada, y dos administradores no pueden editar la misma tarea a la vez. Cubre R13 a R19.
 
 **E4 · Asignación de tareas — Must**
-Permite asignar una tarea a uno o varios estudiantes, sin responsable principal, y dejarla sin asignar si todavía no hay quién la haga. También permite cambiar los responsables de una tarea pendiente o vencida para que otra persona pueda hacerla. Cubre R14 y R20 a R22.
+Permite asignar una tarea a uno o varios estudiantes, sin responsable principal, y dejarla sin asignar si todavía no hay quién la haga (**[SUPUESTO]** S-23). Que el administrador pueda cambiar los responsables de una tarea pendiente o vencida para que otra persona pueda hacerla es **[SUPUESTO]** S-07. Cubre R14 y R20 a R22.
 
 **E5 · Ejecución de tareas por el estudiante — Must**
-El estudiante ve sus tareas asignadas con su estado, abre el detalle completo, marca los pasos del checklist, escribe observaciones y confirma la finalización solo cuando todos los pasos están marcados. Cada paso guarda quién lo marcó y a qué hora. Está pensada para celular. Cubre R23 a R30 y R40.
+El estudiante ve sus tareas asignadas con su estado, abre el detalle completo, marca los pasos del checklist, escribe observaciones y confirma la finalización solo cuando todos los pasos están marcados. Cada paso guarda quién lo marcó; la hora de cada paso es **[SUPUESTO]** S-20. Está pensada para celular. Cubre R23 a R30 y R40.
 
 **E6 · Tablero de cumplimiento y alertas — Must**
 Es la página de inicio del administrador: una cuadrícula de tarjetas ordenada por estado, con lo vencido primero y una alerta visual arriba para lo próximo a vencer. Los estados se calculan solos según la hora límite y el avance del checklist. Cubre R31 a R39.
 
 **E7 · Historial y archivo — Must**
-Las tareas terminadas quedan archivadas, no se pueden borrar ni editar, y se pueden consultar como constancia de quién hizo cada paso y a qué hora. Cubre R10, R19, R24, R29 y R39.
+Las tareas terminadas quedan archivadas y no se pueden borrar (P-03); que tampoco se puedan editar es **[SUPUESTO]** S-11. Se pueden consultar como constancia de quién hizo cada paso y a qué hora se terminó la tarea (P-32); la hora de cada paso es **[SUPUESTO]** S-20. Cubre R10, R19, R24, R29 y R39.
 
 **E8 · Disponibilidad del staff — Should**
 El administrador marca el estado o la disponibilidad de cada miembro del staff, por ejemplo si alguien no puede asistir por una calamidad, para decidir si reasigna sus tareas. Cubre R11 y R12.
@@ -251,7 +253,7 @@ Decisiones que tomamos para poder escribir el borrador. El cliente debe validarl
 | S-07 | **[SUPUESTO]** El administrador puede cambiar los responsables de una tarea mientras no esté terminada, también cuando ya venció. | P-20, P-35 |
 | S-08 | **[SUPUESTO]** Una tarea pasa a «en ejecución» cuando se marca su primer paso. | P-24 |
 | S-09 | **[SUPUESTO]** Una tarea está «por vencer» cuando faltan 30 minutos o menos para su hora límite. | P-49 |
-| S-10 | **[SUPUESTO]** El tablero se actualiza solo cada cierto tiempo, sin que el administrador recargue la página. | P-31 |
+| S-10 | **[SUPUESTO]** El tablero refleja los cambios en un máximo de 60 segundos, sin que el administrador recargue la página. La cifra es una propuesta del equipo; de ella depende que R34 y R38 se vean a tiempo. | P-31 |
 | S-11 | **[SUPUESTO]** Una tarea terminada no se puede reabrir ni editar. | P-26 |
 | S-12 | **[SUPUESTO]** No habrá trabajo sin conexión; como mucho, se avisará al estudiante que perdió la conexión. | P-40, P-41 |
 | S-13 | **[SUPUESTO]** Los filtros del tablero y los adjuntos de referencia en las tareas son deseables pero no indispensables (Could). | P-15, P-29, P-30 |
@@ -260,6 +262,11 @@ Decisiones que tomamos para poder escribir el borrador. El cliente debe validarl
 | S-16 | **[SUPUESTO]** La plataforma es solo para el staff: no incluye la gestión de participantes del hackathon ni un chat interno. | — |
 | S-17 | **[SUPUESTO]** Cuando dos administradores quieren editar la misma tarea, el segundo recibe un aviso y no puede guardar hasta que el primero termine. | P-13 |
 | S-18 | **[SUPUESTO]** Las fechas y horas de la plataforma usan la hora local de Ecuador. | — |
+| S-19 | **[SUPUESTO]** Una tarea vencida que no está terminada todavía se puede completar después de su hora límite, por el responsable original o por otra persona a la que un administrador se la asigne (S-07). | P-35 |
+| S-20 | **[SUPUESTO]** Además de quién marcó cada paso, se guarda la hora en que se marcó. La hora de finalización de la tarea sí está respaldada por P-32. | P-18, P-32 |
+| S-21 | **[SUPUESTO]** Todos los administradores ven y gestionan todas las tareas, sin distinguir por área. | P-01, P-17 |
+| S-22 | **[SUPUESTO]** La clasificación MoSCoW de la sección 4 es una propuesta del equipo. El subconjunto para el Avance 3 (M1, M2, M5 a M9, M11 y M12) también es provisional. | P-46, P-48 |
+| S-23 | **[SUPUESTO]** Una tarea se puede guardar sin responsables y asignarse después; mientras tanto queda «sin asignar». | [DESC], P-23 |
 
 ### Puntos abiertos
 
@@ -267,7 +274,7 @@ Preguntas que el cliente no respondió y que conviene cerrar antes del Avance 3 
 
 | ID | Punto abierto | Pregunta |
 |---|---|---|
-| A-01 | ¿Qué permisos concretos tiene el super admin que no tenga un administrador? | P-01 |
+| A-01 | ¿Qué permisos concretos tiene el super admin que no tenga un administrador? ¿Quién crea la cuenta del super admin? ¿Un administrador puede eliminar a otro administrador? | P-01 |
 | A-02 | ¿Puede el administrador cambiar los pasos de una tarea que un estudiante ya empezó? | P-13 |
 | A-03 | ¿Cuánto debe durar la sesión antes de pedir de nuevo el inicio de sesión? | P-08 |
 | A-04 | ¿La plataforma estará disponible solo durante el evento o también antes y después? | P-09 |
@@ -280,6 +287,17 @@ Preguntas que el cliente no respondió y que conviene cerrar antes del Avance 3 
 | A-11 | ¿Se confirma el adjunto de fotografías como evidencia? El cliente dijo «se podría; depende de la base de datos». | P-16 |
 | A-12 | Falta recibir la carpeta con la identidad visual del hackathon. | P-43, P-44 |
 | A-13 | ¿En qué fechas se celebra el hackathon? Sin ellas no se puede saber cuánto margen hay entre la presentación final y el evento. | — |
+| A-14 | ¿Quién puede completar una tarea vencida: el responsable original, otra persona asignada por un administrador o ambos? | P-35 |
+| A-15 | Si una tarea cumple las condiciones de varios estados (por ejemplo, vencida con pasos marcados o sin responsables), ¿cómo debe verse? | P-23 |
+| A-16 | ¿En qué momento pasa una tarea a «en ejecución»? | P-24 |
+| A-17 | ¿Qué debe pasar cuando un segundo administrador intenta editar una tarea que otro administrador ya está editando? | P-13 |
+| A-18 | ¿Cada administrador gestiona todas las tareas o solo las de su área? | P-01, P-17 |
+| A-19 | Si una tarea tiene varios responsables, ¿comparten un mismo checklist? ¿Basta con que uno confirme la finalización? | P-18, P-19 |
+| A-20 | ¿Un administrador puede cambiar los responsables de una tarea ya asignada? Cuando una tarea vence, ¿otro estudiante la toma por su cuenta o se la asigna un administrador? | P-20, P-35 |
+| A-21 | ¿Necesitan medir el tiempo de retraso de las tareas o descargar reportes de cumplimiento? | P-38, P-47 |
+| A-22 | ¿El responsable es obligatorio al crear una tarea, o se puede guardar sin responsable y asignarla después? | [DESC], P-23 |
+| A-23 | ¿Cuánto retraso es aceptable entre que un estudiante termina una tarea y el administrador lo ve en el tablero? | P-31 |
+| A-24 | ¿Es necesario registrar la hora exacta de cada paso del checklist o basta con registrar quién lo marcó y la hora de finalización de la tarea? | P-18, P-32; S-20 |
 
 ---
 
@@ -295,14 +313,14 @@ Relación de cada regla de negocio con la pregunta que la originó (P-xx), con l
 | R4 | El administrador entrega las credenciales | S-03 (P-05) | Supuesto |
 | R5 | El administrador restablece la contraseña olvidada | S-04 (P-07) | Supuesto |
 | R6 | Tres perfiles | P-01, [DESC] | Cliente |
-| R7 | Todos los administradores tienen los mismos privilegios | P-01 | Cliente |
+| R7 | Administradores por área; «en teoría» mismos privilegios; acceso a todas las tareas supuesto | P-01; S-21 (P-01, P-17) | Cliente y supuesto |
 | R8 | El super admin gestiona a los administradores | S-01 (P-01) | Supuesto |
-| R9 | El estudiante solo ve sus tareas asignadas | [DESC] | Fuente |
+| R9 | El estudiante solo ve sus tareas asignadas; acceso de otro estudiante a una tarea vencida por reasignación supuesto | [DESC]; S-07 (P-20, P-35) | Fuente y supuesto |
 | R10 | Se conserva el historial del estudiante eliminado | P-03 | Cliente |
 | R11 | El administrador gestiona la disponibilidad del staff | P-02, P-04 | Cliente |
 | R12 | Las tareas de un estudiante no disponible se reasignan a criterio del administrador | S-02 (P-02) | Supuesto |
 | R13 | Campos obligatorios de una tarea | [DESC], P-10 | Cliente |
-| R14 | Una tarea sin responsables está «sin asignar» | P-23 | Cliente |
+| R14 | Responsable como dato de creación; estado «sin asignar»; guardar sin responsables supuesto | [DESC], P-23; S-23 | Cliente y supuesto |
 | R15 | Sin dependencias entre tareas | P-11 | Cliente |
 | R16 | Sin categorías de tareas | P-17 | Cliente |
 | R17 | Una tarea en ejecución no se puede borrar | P-13 | Cliente |
@@ -312,18 +330,18 @@ Relación de cada regla de negocio con la pregunta que la originó (P-xx), con l
 | R21 | Checklist compartido entre los responsables | S-05 (P-18) | Supuesto |
 | R22 | El administrador cambia los responsables de una tarea no terminada | S-07 (P-20, P-35) | Supuesto |
 | R23 | Todos los pasos son obligatorios | P-12 | Cliente |
-| R24 | Cada paso guarda quién lo marcó y a qué hora | P-18, P-32 | Cliente |
+| R24 | Quién marcó cada paso y hora de finalización de la tarea; hora de cada paso supuesta | P-18, P-32; S-20; A-24 | Cliente y supuesto |
 | R25 | El estudiante confirma la finalización y solo con todos los pasos marcados | P-25, P-12 | Cliente |
 | R26 | Basta con que confirme un responsable | S-06 (P-19) | Supuesto |
 | R27 | Observaciones adicionales al completar | [DESC] | Fuente |
 | R28 | No hay aprobación del administrador | P-27 | Cliente |
 | R29 | Una tarea terminada no se puede editar | S-11 (P-26) | Supuesto |
-| R30 | Una tarea vencida sigue visible y se puede completar, también por otra persona | P-35 | Cliente |
+| R30 | Una tarea vencida sigue visible; completarla después del vencimiento supuesto | P-35; S-19, S-07 | Cliente y supuesto |
 | R31 | Cinco estados de tarea | P-23 | Cliente |
 | R32 | Pasa a «en ejecución» al marcar el primer paso | S-08 (P-24) | Supuesto |
 | R33 | «Por vencer» con 30 minutos o menos | S-09 (P-49) | Supuesto |
 | R34 | Pasa sola a «vencida» al llegar la hora límite | P-34 | Cliente |
-| R35 | Precedencia entre estados | S-08, S-09 (P-23) | Supuesto |
+| R35 | Precedencia para calcular el estado (no el orden del tablero, que es R37) | S-08, S-09 (P-23); A-15 | Supuesto |
 | R36 | El tablero es la página de inicio del administrador, con tarjetas | P-31 | Cliente |
 | R37 | Orden del tablero | P-23, P-34, P-37 | Cliente |
 | R38 | Alerta visual arriba para lo próximo a vencer | P-33, P-49 | Cliente |
