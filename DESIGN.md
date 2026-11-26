@@ -696,7 +696,7 @@ El contador es el dato principal; la barra lo acompaña (`aria-hidden="true"`, p
 
 ## 6. Accesibilidad
 
-**Objetivo:** WCAG 2.2, nivel AA. La conformidad se declara solo en las combinaciones calculadas como aprobadas en la sección 4.3.
+**Objetivo:** WCAG 2.2, nivel AA. Esta sección define **requisitos**, no resultados: lo único calculado son los ratios de contraste de la sección 4.3. La conformidad de la interfaz no está comprobada, porque la aplicación todavía no existe; no se ha probado con teclado manual, lector de pantalla, zoom ni dispositivos reales.
 
 ### 6.1 Contraste
 
@@ -716,11 +716,11 @@ El contador es el dato principal; la barra lo acompaña (`aria-hidden="true"`, p
 
 ### 6.3 Navegación por teclado [EQUIPO]
 
-- Todo se puede usar con teclado: tarjetas, checklist, formularios, diálogos y navegación.
+- Todo debe poder usarse con teclado: tarjetas, checklist, formularios, diálogos y navegación.
 - Foco visible: contorno 3 px · 2 px con `:focus-visible`, lima sobre fondos oscuros y tinta sobre superficies moradas. Nunca se elimina.
 - Orden de tabulación: sigue el orden visual.
 - Primer elemento: enlace de «Saltar al contenido» en cada página.
-- Diálogos: atrapan el foco, se cierran con Esc, devuelven el foco al origen.
+- Diálogos: deben atrapar el foco, cerrarse con Esc y devolver el foco al origen.
 - Checklist del estudiante: Tab y Mayús+Tab entre pasos, Espacio para marcar. El del administrador no es enfocable.
 - Estructura semántica: encabezados en orden (H1 → H2 → H3), regiones de página, etiquetas asociadas a cada campo.
 - Tarjeta de tarea: un único enlace con nombre accesible compuesto.
@@ -738,16 +738,17 @@ El contador es el dato principal; la barra lo acompaña (`aria-hidden="true"`, p
 ### 6.5 Texto y zoom [EQUIPO]
 
 - Texto mínimo: 13 px; ver la escala de §4.4.
-- Zoom al 200 % sin pérdida de contenido.
+- Debe admitir zoom al 200 % sin pérdida de contenido.
 - Sin desplazamiento horizontal desde **320 px** (objetivo de diseño). La verificación académica CE6 se realiza también con **360 px** como referencia.
-- Sora escala con el tamaño de texto del sistema; Big Shoulders crece máximo 1,3 veces [BB].
+- Sora debe escalar con el tamaño de texto del sistema; Big Shoulders crece como máximo 1,3 veces [BB].
+- **Verificación de 320 y 360 px en el Avance 2 (CE6):** solo se comprobó la maqueta `docs/diseno/brand-board.html` en Chrome headless a 320, 360 y 1440 px, sin desbordamiento horizontal detectado. D-18 y D-19 siguen pendientes sobre la aplicación.
 
 ### 6.6 Movimiento [BB]
 
 - Transiciones de interfaz: 0,2 s.
 - Animaciones de entrada (0,8 s) y barrido (0,9 s): solo en el inicio de sesión y en la primera aparición de la tarjeta señal. **No en el tablero.**
 - Sin rebote ni movimiento continuo.
-- Con `prefers-reduced-motion: reduce`: todo aparece sin animación.
+- Con `prefers-reduced-motion: reduce`, todo debe aparecer sin animación.
 
 ### 6.7 Contenido no textual
 
@@ -842,6 +843,7 @@ Fotografía y su degradado, fundidos, cita sobre foto, círculos de cifra, líne
 | `docs/diseno/direccion-visual.md` | Texto original de la justificación de la dirección visual. |
 | `docs/diseno/style-tiles.html` | Exploración visual estática (Avance 2). No modificar. |
 | `docs/diseno/Interact2Hack-Brandboard.html` | Brand board oficial «Señal Neón» v1.0. No modificar. |
+| `docs/diseno/brand-board.html` | Brand board del sistema definido en este documento (maqueta autocontenida). |
 | `docs/diseno/critique.md` | Informe Critique de Impeccable (12/20, degradado). |
 | `docs/diseno/audit.md` | Informe Audit de Impeccable (11/20, completo). |
 | `docs/diseno/decisiones-impeccable.md` | Decisiones del equipo sobre los 25 ítems de Critique y Audit. |
