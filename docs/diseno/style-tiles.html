@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interact2Hack Staff | Style Tiles</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --negro: #050307;
+      --tinta: #0B0612;
+      --morado: #A46CFB;
+      --morado-oscuro: #5B2BB5;
+      --lima: #5CF000;
+      --blanco: #FFFFFF;
+      --gris: #B3AABF;
+      --amarillo: #FFC857;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 35px 20px;
+      background: var(--negro);
+      color: var(--blanco);
+      font-family: "Sora", sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: "Big Shoulders Display", sans-serif;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .contenedor {
+      max-width: 1450px;
+      margin: auto;
+    }
+
+    .subtitulo {
+      color: var(--morado);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    header h1 {
+      font-size: clamp(44px, 7vw, 85px);
+      line-height: 1;
+      margin: 12px 0;
+    }
+
+    header p {
+      max-width: 850px;
+      line-height: 1.7;
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 25px 0 35px;
+    }
+
+    .etiquetas span {
+      border: 1px solid #60447B;
+      padding: 8px 12px;
+      font-size: 11px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tile {
+      background: var(--tinta);
+      border: 1px solid #463452;
+      padding: 20px;
+      min-width: 0;
+    }
+
+    .numero {
+      color: var(--morado);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .tile h2 {
+      font-size: 35px;
+      margin: 10px 0;
+      line-height: 1;
+    }
+
+    .descripcion {
+      font-size: 12px;
+      color: var(--gris);
+      line-height: 1.7;
+      min-height: 82px;
+    }
+
+    .pantalla {
+      background: var(--negro);
+      border: 1px solid #3B294B;
+      min-height: 540px;
+      margin-top: 18px;
+    }
+
+    .barra {
+      padding: 14px;
+      border-bottom: 1px solid #392B45;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Big Shoulders Display", sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .logo span { color: var(--morado); }
+
+    .usuario {
+      border: 1px solid var(--morado);
+      padding: 5px 8px;
+      font-size: 10px;
+    }
+
+    .contenido { padding: 16px; }
+
+    .seccion {
+      color: var(--gris);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .titulo-pantalla {
+      font-size: 33px;
+      margin: 8px 0 18px;
+    }
+
+    .tarea {
+      background: var(--tinta);
+      border: 1px solid #674B7A;
+      padding: 16px;
+    }
+
+    .estado {
+      display: inline-block;
+      background: #FFC85715;
+      color: var(--amarillo);
+      border: 1px solid #FFC85780;
+      padding: 5px 8px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .tarea h3 {
+      font-size: 29px;
+      margin: 15px 0;
+      line-height: 1;
+    }
+
+    .datos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 11px;
+    }
+
+    .datos small {
+      display: block;
+      color: var(--gris);
+      margin-bottom: 5px;
+    }
+
+    .separador {
+      border-top: 1px solid #3B294B;
+      margin: 16px 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 11px;
+      font-size: 11px;
+      margin: 13px 0;
+    }
+
+    .item-check {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+
+    .casilla {
+      width: 17px;
+      height: 17px;
+      border: 1px solid var(--morado);
+      flex-shrink: 0;
+      text-align: center;
+      line-height: 15px;
+      color: var(--negro);
+      font-weight: 700;
+    }
+
+    .completada {
+      background: var(--morado);
+    }
+
+    .barra-progreso {
+      background: #30203D;
+      height: 7px;
+      margin: 13px 0;
+    }
+
+    .progreso {
+      width: 66.67%;
+      height: 100%;
+      background: var(--morado);
+    }
+
+    .boton {
+      display: block;
+      width: 100%;
+      background: var(--morado);
+      color: var(--negro);
+      border: 0;
+      padding: 13px;
+      text-transform: uppercase;
+      font-family: "Sora", sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      margin-top: 17px;
+    }
+
+    .metricas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .metrica {
+      border: 1px solid #4D3562;
+      background: #11091C;
+      padding: 11px;
+    }
+
+    .metrica strong {
+      display: block;
+      font-size: 25px;
+      color: var(--morado);
+      font-family: "Big Shoulders Display", sans-serif;
+    }
+
+    .metrica span {
+      color: var(--gris);
+      font-size: 9px;
+    }
+
+    .paso {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      border: 1px solid #4B3561;
+      padding: 12px;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+
+    .paso.actual {
+      border-color: var(--morado);
+      background: #A46CFB10;
+    }
+
+    .numero-paso {
+      background: var(--morado-oscuro);
+      padding: 6px 9px;
+      font-weight: 700;
+    }
+
+    .progreso-grande {
+      font-family: "Big Shoulders Display", sans-serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--morado);
+    }
+
+    .paleta {
+      display: flex;
+      gap: 7px;
+      margin: 17px 0;
+    }
+
+    .color {
+      height: 30px;
+      flex: 1;
+      border: 1px solid #FFFFFF30;
+    }
+
+    .tipografia {
+      font-size: 11px;
+      color: var(--gris);
+      line-height: 1.8;
+    }
+
+    .conclusion {
+      border-top: 1px solid #4F3860;
+      padding-top: 16px;
+      margin-top: 18px;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--gris);
+    }
+
+    .conclusion strong { color: var(--blanco); }
+
+    .comparacion {
+      margin-top: 35px;
+      padding: 22px;
+      background: var(--tinta);
+      border: 1px solid #4F3860;
+    }
+
+    .comparacion h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .comparacion p {
+      color: var(--gris);
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1050px) {
+      .grid { grid-template-columns: 1fr; }
+      .descripcion { min-height: auto; }
+      .pantalla { min-height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="contenedor">
+
+    <header>
+      <span class="subtitulo">
+        Desarrollo Web 2 — Avance 2
+      </span>
+
+      <h1>Interact2Hack Staff<br>Style Tiles</h1>
+
+      <p>
+        Exploración de tres direcciones visuales para
+        Interact2Hack Staff. Todas mantienen los colores
+        y tipografías de la identidad del proyecto,
+        pero proponen distintas formas de organizar
+        las tareas, sus estados y los checklists.
+      </p>
+
+      <div class="etiquetas">
+        <span>Intuitivo</span>
+        <span>Llamativo</span>
+        <span>Eficaz</span>
+        <span>Referente: ClickUp</span>
+      </div>
+    </header>
+
+    <section class="grid">
+
+      <!-- DIRECCIÓN A -->
+      <article class="tile">
+
+        <span class="numero">DIRECCIÓN 01</span>
+        <h2>Señal protagonista</h2>
+
+        <p class="descripcion">
+          Diseño de alto impacto visual. Destaca una
+          tarea importante mediante títulos grandes,
+          contraste y una acción principal.
+        </p>
+
+        <div class="pantalla">
+
+          <div class="barra">
+            <div class="logo">
+              INTERACT<span>2</span>HACK
+            </div>
+            <div class="usuario">STAFF</div>
+          </div>
+
+          <div class="contenido">
+
+            <span class="seccion">Mi actividad prioritaria</span>
+            <h2 class="titulo-pantalla">Tu próxima tarea</h2>
+
+            <div class="tarea">
+
+              <span class="estado">POR VENCER</span>
+
+              <h3>Preparar aula principal</h3>
+
+              <div class="datos">
+                <div>
+                  <small>UBICACIÓN</small>
+                  <strong>Aula 101</strong>
+                </div>
+                <div>
+                  <small>RESPONSABLE</small>
+                  <strong>María Pérez</strong>
+                </div>
+                <div>
+                  <small>VENCIMIENTO</small>
+                  <strong>14:30</strong>
+                </div>
+                <div>
+                  <small>PROGRESO</small>
+                  <strong>2 de 3 pasos</strong>
+                </div>
+              </div>
+
+              <div class="separador"></div>
+
+              <strong style="font-size:12px">
+                Checklist
+              </strong>
+
+              <div class="checklist">
+
+                <div class="item-check">
+                  <span class="casilla completada">✓</span>
+                  Revisar proyectores
+                </div>
+
+                <div class="item-check">
+                  <span class="casilla completada">✓</span>
+                  Organizar mesas
+                </div>
+
+                <div class="item-check">
+                  <span class="casilla"></span>
+                  Verificar conexión a internet
+                </div>
+
+              </div>
+
+              <div class="barra-progreso">
+                <div class="progreso"></div>
+              </div>
+
+              <button class="boton">Ver tarea</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="paleta">
+          <div class="color" style="background:#050307"></div>
+          <div class="color" style="background:#0B0612"></div>
+          <div class="color" style="background:#A46CFB"></div>
+          <div class="color" style="background:#5B2BB5"></div>
+          <div class="color" style="background:#5CF000"></div>
+        </div>
+
+        <p class="tipografia">
+          Big Shoulders Display + Sora<br>
+          Colores: #050307 · #0B0612 · #A46CFB ·
+          #5B2BB5 · #5CF000
+        </p>
+
+        <div class="conclusion">
+          <strong>Fortaleza:</strong>
+          Llamativo, con jerarquía visual directa.<br>
+          <strong>Debilidad:</strong>
+          Muestra menos tareas simultáneamente.
+        </div>
+
+      </article>
+
+      <!-- DIRECCIÓN B -->
+      <article class="tile">
+
+        <span class="numero">DIRECCIÓN 02</span>
+        <h2>Control operativo</h2>
+
+        <p class="descripcion">
+          Inspirado en la organización de ClickUp.
+          Prioriza el seguimiento de tareas, los
+          indicadores y la información administrativa.
+        </p>
+
+        <div class="pantalla">
+
+          <div class="barra">
+            <div class="logo">
+              INTERACT<span>2</span>HACK
+            </div>
+            <div class="usuario">ADMIN</div>
+          </div>
+
+          <div class="contenido">
+
+            <span class="seccion">Panel de seguimiento</span>
+            <h2 class="titulo-pantalla">Control de tareas</h2>
+
+            <div class="metricas">
+              <div class="metrica">
+                <strong>01</strong>
+                <span>POR VENCER</span>
+              </div>
+              <div class="metrica">
+                <strong>02</strong>
+                <span>PASOS COMPLETADOS</span>
+              </div>
+            </div>
+
+            <div class="tarea">
+
+              <div class="datos">
+                <strong>TAREA #001</strong>
+                <span class="estado">POR VENCER</span>
+              </div>
+
+              <h3>Preparar aula principal</h3>
+
+              <div class="datos">
+                <div>
+                  <small>UBICACIÓN</small>
+                  <strong>Aula 101</strong>
+                </div>
+                <div>
+                  <small>RESPONSABLE</small>
+                  <strong>María Pérez</strong>
+                </div>
+                <div>
+                  <small>VENCIMIENTO</small>
+                  <strong>14:30</strong>
+                </div>
+                <div>
+                  <small>AVANCE</small>
+                  <strong>2/3 pasos</strong>
+                </div>
+              </div>
+
+              <div class="separador"></div>
+
+              <div class="checklist">
+                <div class="item-check">
+                  <span class="casilla completada">✓</span>
+                  Revisar proyectores
+                </div>
+
+                <div class="item-check">
+                  <span class="casilla completada">✓</span>
+                  Organizar mesas
+                </div>
+
+                <div class="item-check">
+                  <span class="casilla"></span>
+                  Verificar conexión a internet
+                </div>
+              </div>
+
+              <div class="barra-progreso">
+                <div class="progreso"></div>
+              </div>
+
+              <button class="boton">Ver tarea</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="paleta">
+          <div class="color" style="background:#050307"></div>
+          <div class="color" style="background:#0B0612"></div>
+          <div class="color" style="background:#A46CFB"></div>
+          <div class="color" style="background:#5B2BB5"></div>
+          <div class="color" style="background:#5CF000"></div>
+        </div>
+
+        <p class="tipografia">
+          Big Shoulders Display + Sora<br>
+          Colores: #050307 · #0B0612 · #A46CFB ·
+          #5B2BB5 · #5CF000
+        </p>
+
+        <div class="conclusion">
+          <strong>Fortaleza:</strong>
+          Facilita la supervisión administrativa.<br>
+          <strong>Debilidad:</strong>
+          Puede mostrar demasiada información
+          para un estudiante.
+        </div>
+
+      </article>
+
+      <!-- DIRECCIÓN C -->
+      <article class="tile">
+
+        <span class="numero">DIRECCIÓN 03</span>
+        <h2>Checklist primero</h2>
+
+        <p class="descripcion">
+          Diseño enfocado en la ejecución. Destaca
+          el progreso, los pasos completados y la
+          siguiente acción del estudiante.
+        </p>
+
+        <div class="pantalla">
+
+          <div class="barra">
+            <div class="logo">
+              INTERACT<span>2</span>HACK
+            </div>
+            <div class="usuario">STAFF</div>
+          </div>
+
+          <div class="contenido">
+
+            <span class="seccion">Actividad asignada</span>
+            <h2 class="titulo-pantalla">Completa tus pasos</h2>
+
+            <div class="tarea">
+
+              <span class="estado">POR VENCER</span>
+
+              <h3>Preparar aula principal</h3>
+
+              <div class="datos">
+                <div>
+                  <small>LUGAR</small>
+                  <strong>Aula 101</strong>
+                </div>
+                <div>
+                  <small>RESPONSABLE</small>
+                  <strong>María Pérez</strong>
+                </div>
+                <div>
+                  <small>VENCE</small>
+                  <strong>14:30</strong>
+                </div>
+              </div>
+
+              <div class="separador"></div>
+
+              <span class="seccion">Progreso actual</span>
+              <div class="progreso-grande">2/3</div>
+
+              <div class="barra-progreso">
+                <div class="progreso"></div>
+              </div>
+
+              <div class="separador"></div>
+
+              <div class="paso">
+                <span class="numero-paso">✓</span>
+                Revisar proyectores
+              </div>
+
+              <div class="paso">
+                <span class="numero-paso">✓</span>
+                Organizar mesas
+              </div>
+
+              <div class="paso actual">
+                <span class="numero-paso">3</span>
+                Verificar conexión a internet
+              </div>
+
+              <button class="boton">Ver tarea</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="paleta">
+          <div class="color" style="background:#050307"></div>
+          <div class="color" style="background:#0B0612"></div>
+          <div class="color" style="background:#A46CFB"></div>
+          <div class="color" style="background:#5B2BB5"></div>
+          <div class="color" style="background:#5CF000"></div>
+        </div>
+
+        <p class="tipografia">
+          Big Shoulders Display + Sora<br>
+          Colores: #050307 · #0B0612 · #A46CFB ·
+          #5B2BB5 · #5CF000
+        </p>
+
+        <div class="conclusion">
+          <strong>Fortaleza:</strong>
+          Simplifica la ejecución desde el celular.<br>
+          <strong>Debilidad:</strong>
+          Ofrece una visión menos completa de
+          todas las tareas del evento.
+        </div>
+
+      </article>
+
+    </section>
+
+    <section class="comparacion">
+      <h2>Comparación de direcciones</h2>
+
+      <p>
+        <strong>A — Señal protagonista:</strong>
+        prioriza el impacto visual y las tareas urgentes.
+      </p>
+
+      <p>
+        <strong>B — Control operativo:</strong>
+        facilita la supervisión y organización
+        de tareas para administradores.
+      </p>
+
+      <p>
+        <strong>C — Checklist primero:</strong>
+        prioriza la ejecución de actividades
+        y la experiencia móvil del estudiante.
+      </p>
+
+      <p>
+        Las tres propuestas son exploratorias.
+        La dirección definitiva será seleccionada
+        después de evaluar su claridad, eficacia,
+        coherencia con el Brandboard y utilidad
+        para los usuarios de Interact2Hack Staff.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>

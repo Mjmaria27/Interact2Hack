@@ -1,0 +1,13 @@
+# Justificación de la dirección visual seleccionada: B — Control operativo
+
+Después de comparar las tres propuestas de diseño, elegimos la **Dirección B — Control operativo**, porque consideramos que es la que mejor responde a las necesidades de Interact2Hack Staff y a las tres palabras de personalidad que definimos: intuitivo, llamativo y eficaz.
+
+Esta propuesta está inspirada en la organización de ClickUp y permite visualizar de manera clara las tareas, los responsables, las fechas de vencimiento, los estados y el progreso de las actividades. Consideramos que esto es fundamental para nuestro proyecto, ya que los administradores necesitan supervisar varias tareas al mismo tiempo y reconocer rápidamente cuáles requieren mayor atención.
+
+Uno de los aspectos que más nos gustó de esta alternativa fue la incorporación de **marcadores visuales que muestran la cantidad de tareas por vencer y los pasos completados**. Consideramos que estos indicadores son especialmente útiles porque permiten conocer rápidamente el estado de las actividades sin necesidad de revisar cada tarea individualmente. Además, facilitan el seguimiento del trabajo y ayudan a identificar las prioridades durante el desarrollo del evento.
+
+En comparación con la Dirección A, que prioriza el impacto visual, y la Dirección C, que se enfoca principalmente en los checklists de los estudiantes, la Dirección B ofrece un mejor equilibrio entre organización, funcionalidad y claridad. También mantiene los colores y las tipografías establecidos en la identidad visual de Interact2Hack, logrando una apariencia tecnológica y llamativa sin comprometer la facilidad de uso.
+
+Aunque seleccionamos la Dirección B como nuestra propuesta principal, reconocemos que **todavía existen aspectos que pueden mejorarse a lo largo del desarrollo del proyecto**. Por ejemplo, podemos perfeccionar la distribución de la información, adaptar mejor los componentes a dispositivos móviles e incorporar elementos de la Dirección C que faciliten la visualización y realización de los checklists por parte de los estudiantes. Consideramos que el diseño debe evolucionar conforme avancemos en la implementación y realicemos pruebas de funcionamiento y usabilidad.
+
+En conclusión, elegimos la Dirección B porque representa una base sólida para desarrollar una plataforma organizada, visualmente atractiva y eficiente. Sin embargo, no la consideramos una propuesta definitiva e inmodificable, sino un punto de partida que podremos ajustar y mejorar para ofrecer una mejor experiencia tanto a los administradores como a los estudiantes de Interact2Hack Staff.
